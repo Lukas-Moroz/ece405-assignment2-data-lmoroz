@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import logging
 
 from .adapters import run_classify_quality, run_gopher_quality_filter
@@ -13,7 +14,7 @@ def test_classify_quality():
     prediction, score = run_classify_quality(low_quality_cc)
     # TODO: you may have to change this check below, depending on what your
     # quality classifier returns.
-    assert prediction == "cc"
+    assert prediction == "lq"
     assert isinstance(score, float)
     assert score > 0
 
@@ -23,7 +24,7 @@ def test_classify_quality():
     prediction, score = run_classify_quality(high_quality_wiki)
     # TODO: you may have to change this check below, depending on what your
     # quality classifier returns.
-    assert prediction == "wiki"
+    assert prediction == "hq"
     assert isinstance(score, float)
     assert score > 0
 

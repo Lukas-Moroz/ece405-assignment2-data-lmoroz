@@ -1,0 +1,31 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0 -- /Users/achu9972/Documents/GitHub/ece405-assignment2-data-lmoroz/ece405-assignment2-data/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/achu9972/Documents/GitHub/ece405-assignment2-data-lmoroz/ece405-assignment2-data
+configfile: pyproject.toml
+plugins: jaxtyping-0.3.2, hydra-core-1.3.2
+collecting ... collected 21 items / 20 deselected / 1 selected
+
+tests/test_quality.py::test_classify_quality [quality classifier] held-out eval: n=610, precision=0.985, recall=0.985
+FAILED
+
+=================================== FAILURES ===================================
+____________________________ test_classify_quality _____________________________
+
+    def test_classify_quality():
+        low_quality_cc_path = FIXTURES_PATH / "low_quality_cc.txt"
+        with open(low_quality_cc_path) as f:
+            low_quality_cc = f.read()
+        prediction, score = run_classify_quality(low_quality_cc)
+        # TODO: you may have to change this check below, depending on what your
+        # quality classifier returns.
+>       assert prediction == "cc"
+E       AssertionError: assert 'low_quality' == 'cc'
+E         
+E         - cc
+E         + low_quality
+
+tests/test_quality.py:16: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_quality.py::test_classify_quality - AssertionError: assert ...
+======================= 1 failed, 20 deselected in 1.85s =======================
